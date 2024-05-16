@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isrealrender", "isrealrender\isrealrender.vcxproj", "{4A34F291-5D5F-4C07-882D-EF1B70B1F241}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{81043F60-0A6D-4312-9AB9-BA463915513E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{4A34F291-5D5F-4C07-882D-EF1B70B1F241}.Release|x64.Build.0 = Release|x64
 		{4A34F291-5D5F-4C07-882D-EF1B70B1F241}.Release|x86.ActiveCfg = Release|Win32
 		{4A34F291-5D5F-4C07-882D-EF1B70B1F241}.Release|x86.Build.0 = Release|Win32
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Debug|x64.ActiveCfg = Debug|x64
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Debug|x64.Build.0 = Debug|x64
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Debug|x86.ActiveCfg = Debug|Win32
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Debug|x86.Build.0 = Debug|Win32
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Release|x64.ActiveCfg = Release|x64
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Release|x64.Build.0 = Release|x64
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Release|x86.ActiveCfg = Release|Win32
+		{81043F60-0A6D-4312-9AB9-BA463915513E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

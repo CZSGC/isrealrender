@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include <utility>
 #include <algorithm>
+#include "geometry.h"
 
 
 constexpr int kTimerID = 101;
@@ -111,6 +112,41 @@ public:
                 error -= 2 * dx;
             }
         }
+
+    }
+    
+    void set_triangle(Vec3f a, Vec3f b, Vec3f c) {
+        int left, right, bottom, top;
+        if (a.x < b.x)
+            left = a.x < c.x ? a.x : c.x;
+        else
+            left = b.x < c.x ? b.x : c.x;
+
+
+        if (a.y < b.y)
+            bottom = a.y < c.y ? a.y : c.y;
+        else
+            bottom = b.y < c.y ? b.y : c.y;
+
+
+        if (a.x > b.x)
+            right = a.x > c.x ? a.x : c.x;
+        else
+            right = b.x > c.x ? b.x : c.x;
+
+
+        if (a.y > b.y)
+            top = a.y > c.y ? a.y : c.y;
+        else
+            top = b.y > c.y ? b.y : c.y;
+        for (int i = left; i <= right; i++) {
+            for (int j = bottom; j <= top; j++) {
+                if (isInside(a, b, c, Vec3f(i, j))) {
+                    set_pixel(i, j, 0xffffffff);
+                }
+            }
+        }
+
 
     }
 
@@ -219,7 +255,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             auto buffs = reinterpret_cast<graphics_buffers*>(GetWindowLongPtr(hwnd, GWLP_USERDATA ));
             //draw_something(*buffs);
-            buffs->set_line(0, 0, 200, 50, 0xffffffff);
+            buffs->set_triangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200));
             buffs->swap();
             buffs->clear();
             InvalidateRect(hwnd, NULL, FALSE);

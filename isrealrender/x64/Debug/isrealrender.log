@@ -1,3 +1,13 @@
 ﻿  main.cpp
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(256,1): warning C4715: 'WindowProc': not all control paths return a value
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(121,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(123,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(127,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(129,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(133,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(135,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(139,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(141,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(144,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(144,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(292,1): warning C4715: 'WindowProc': not all control paths return a value
   isrealrender.vcxproj -> C:\Users\Administrator\source\repos\isrealrender\x64\Debug\isrealrender.exe
