@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(256,1): warning C4715: 'WindowProc': not all control paths return a value
+  isrealrender.vcxproj -> C:\Users\Administrator\source\repos\isrealrender\x64\Debug\isrealrender.exe
