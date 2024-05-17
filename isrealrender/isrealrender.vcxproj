@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="model.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

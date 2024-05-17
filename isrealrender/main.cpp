@@ -7,6 +7,7 @@
 #include <utility>
 #include <algorithm>
 #include "geometry.h"
+#include "model.h"
 
 
 constexpr int kTimerID = 101;
@@ -73,15 +74,17 @@ public:
         std::fill(back_.data, back_.data + size(), 0);
     }
 
-    void set_pixel(int x, int y, uint32_t pix) {
+    void set_pixel(Vec3f v, uint32_t pix) {
+        int x = v.x, y = v.y;
         if (x >= 0 && x < wd_ && y >= 0 && y < hgt_)
         {
             back_.data[(hgt_-y)*wd_ + x] = pix;
         }
     }
 
-    void set_line(int x0,int y0,int x1,int y1,uint32_t pex)
+    void set_line(Vec3f v0,Vec3f v1,uint32_t pex)
     {
+        int x0 = v0.x, y0 = v0.y, x1 = v1.x, y1 = v1.y;
         bool steep = false;
         if (std::abs(y1 - y0) > std::abs(x1 - x0)) {
             std::swap(x0, y0);
@@ -101,10 +104,10 @@ public:
 
         for (int x = x0; x <= x1; x++) {
             if (steep) {
-                set_pixel(y, x, 0xffffffff);
+                set_pixel(Vec3f(y,x), 0xffffffff);
             }
             else {
-                set_pixel(x, y, 0xffffffff);
+                set_pixel(Vec3f(x,y), 0xffffffff);
             }
             error += derror;
             if (error > dx) {
@@ -142,7 +145,7 @@ public:
         for (int i = left; i <= right; i++) {
             for (int j = bottom; j <= top; j++) {
                 if (isInside(a, b, c, Vec3f(i, j))) {
-                    set_pixel(i, j, 0xffffffff);
+                    set_pixel(Vec3f(i,j), 0xffffffff);
                 }
             }
         }
@@ -221,7 +224,7 @@ void draw_something(graphics_buffers& buffs)
 
     if (x >= 0 && x < wd && y >= 0 && y < hgt) 
     {
-        buffs.set_pixel(x, y, 0xffffffff);
+        buffs.set_pixel(Vec3f(x,y), 0xffffffff);
     }
 
     x += x_vel;
@@ -234,6 +237,10 @@ void draw_something(graphics_buffers& buffs)
     {
         y_vel *= -1;
     }
+}
+
+void drawModelFace(graphics_buffers& buffsm,Model model) {
+
 }
 
 
