@@ -40,3 +40,15 @@ bool isInside(Vec3f a, Vec3f b, Vec3f c, Vec3f p) {
 	return true;
 
 }
+
+float& Vec3f::operator[](int i) {
+	if (i == 0) {
+		return x;
+	}
+	else if (i == 1) {
+		return y;
+	}
+	else {
+		return z;
+	}
+}

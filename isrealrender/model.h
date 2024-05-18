@@ -8,7 +8,8 @@ class Model
 {
 public:
 	std::string filename;
-	std::vector<int> faceP;
+	std::vector<Vec3f> faceVertexIndexVector;
+	std::vector<Vec3f> vertexVector;
 	Model(const std::string filename);
 };
 

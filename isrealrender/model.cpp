@@ -13,15 +13,27 @@ Model::Model(std::string filename) {
 	}
 	std::string line;
 	while (std::getline(in, line)) {
+		if (!line.compare(0, 2, "v ")) {
+			std::istringstream iss(line);
+			char trash;
+			iss >> trash;
+			Vec3f v;
+			for (int i = 0; i < 3; i++) {
+				iss >> v[i];
+			}
+			vertexVector.push_back(v);
+		}
 		if (!line.compare(0, 2, "f ")) {
 			std::istringstream iss(line);
 			char trash;
 			iss >> trash ;
-			int f;
+			float f;
+			Vec3f v;
 			for (int i = 0; i < 2; i++) {
 				iss >> f >> trash >> trash >> trash >> trash;
-				faceP.push_back(--f);
+				v[i] = f;
 			}
+			faceVertexIndexVector.push_back(v);
 		}
 	}
 }
