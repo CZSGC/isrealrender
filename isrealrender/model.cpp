@@ -11,6 +11,8 @@ Model::Model(std::string filename) {
 	if (in.fail()) {
 		std::cerr << "failed open file";
 	}
+	char trash;
+	int itrash;
 	std::string line;
 	while (std::getline(in, line)) {
 		if (!line.compare(0, 2, "v ")) {
@@ -25,15 +27,17 @@ Model::Model(std::string filename) {
 		}
 		if (!line.compare(0, 2, "f ")) {
 			std::istringstream iss(line);
-			char trash;
 			iss >> trash ;
 			float f;
 			Vec3f v;
-			for (int i = 0; i < 2; i++) {
-				iss >> f >> trash >> trash >> trash >> trash;
-				v[i] = f;
+			for (int i = 0; i <3; i++) {
+
+				iss >> f >> trash >> itrash >> trash >> itrash;
+				v[i] = --f;
 			}
 			faceVertexIndexVector.push_back(v);
 		}
 	}
 }
+
+

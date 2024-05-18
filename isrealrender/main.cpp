@@ -27,7 +27,7 @@ graphics_buffer create_graphics_buffer(int wd, int hgt)
     BITMAPINFO bmi = {};
     bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
     bmi.bmiHeader.biWidth = wd;
-    bmi.bmiHeader.biHeight = -hgt;
+    bmi.bmiHeader.biHeight = hgt;
     bmi.bmiHeader.biPlanes = 1;
     bmi.bmiHeader.biBitCount = 32;
     bmi.bmiHeader.biCompression = BI_RGB;
@@ -78,7 +78,7 @@ public:
         int x = v.x, y = v.y;
         if (x >= 0 && x < wd_ && y >= 0 && y < hgt_)
         {
-            back_.data[(hgt_-y)*wd_ + x] = pix;
+            back_.data[(y)*wd_ + x] = pix;
         }
     }
 
@@ -98,7 +98,7 @@ public:
 
         int dx = x1 - x0;
         int dy = y1 - y0;
-        int derror = 2 * dy;
+        int derror = 2 * std::abs(dy);
         int error = 0;
         int y = y0;
 
@@ -185,7 +185,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,            // Window style
 
         // Size and position
-        0, 0, 1280, 720,
+        0, 0, 800, 800,
 
         0,       // Parent window    
         0,       // Menu
@@ -239,8 +239,22 @@ void draw_something(graphics_buffers& buffs)
     }
 }
 
-void drawModelFace(graphics_buffers& buffsm,Model model) {
+void drawModelFace(graphics_buffers& buffs) {
+    Model model("E:/tinyrender/tinyrenderer/obj/african_head/african_head.obj");
+    //model.faceVertexIndexVector.size()
+    for (int i = 3; i < model.faceVertexIndexVector.size(); i++) {
 
+        Vec3f v = model.faceVertexIndexVector[i];
+        for (int j = 0; j < 3; j++) {
+            Vec3f v0 = model.vertexVector[v[j]];
+            Vec3f v1 = model.vertexVector[v[(j + 1) % 3]];
+            float x0 = (v0.x + 1.) * buffs.width() / 2.;
+            float y0 = (v0.y + 1.) * buffs.height() / 2.;
+            float x1 = (v1.x + 1.) * buffs.width() / 2.;
+            float y1 = (v1.y + 1.) * buffs.height() / 2.;
+            buffs.set_line(Vec3f(x0, y0), Vec3f(x1, y1), 0xffffffff);
+        }
+    }
 }
 
 
@@ -262,7 +276,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             auto buffs = reinterpret_cast<graphics_buffers*>(GetWindowLongPtr(hwnd, GWLP_USERDATA ));
             //draw_something(*buffs);
-            buffs->set_triangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200));
+            //buffs->set_triangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200));
+            drawModelFace(*buffs);
             buffs->swap();
             buffs->clear();
             InvalidateRect(hwnd, NULL, FALSE);

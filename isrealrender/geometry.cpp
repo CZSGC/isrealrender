@@ -1,5 +1,5 @@
 #include "geometry.h"
-
+#include "cmath"
 
 Vec3f Vec3f::operator+(const Vec3f& a) 
 {
@@ -39,6 +39,12 @@ bool isInside(Vec3f a, Vec3f b, Vec3f c, Vec3f p) {
 
 	return true;
 
+}
+void Vec3f::normalization() {
+	float len = std::sqrt(x * x + y * y );
+	x = x / len;
+	y = y / len;
+	z = z / len;
 }
 
 float& Vec3f::operator[](int i) {

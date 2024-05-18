@@ -12,9 +12,3 @@ public:
 	std::vector<Vec3f> vertexVector;
 	Model(const std::string filename);
 };
-
-
-std::vector<float> normalization(std::vector<float> n) {
-	float len = std::sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
-	n[0]=
-}

@@ -30,5 +30,6 @@ public:
 		return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 	}
 	void setzOne();
+	void normalization();
 };
 bool isInside(Vec3f a, Vec3f b, Vec3f c, Vec3f p);
