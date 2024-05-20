@@ -1,33 +1,38 @@
-﻿  main.cpp
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(78,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(78,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(87,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(87,27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(87,38): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(87,49): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(107,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(107,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(110,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(110,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(124,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(126,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(130,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(132,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(136,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(138,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(142,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(144,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(147,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(147,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(148,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(148,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(227,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(227,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(249,46): warning C4244: 'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(250,56): warning C4244: 'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(251,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(252,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(253,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(254,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Administrator\source\repos\isrealrender\isrealrender\main.cpp(314,1): warning C4715: 'WindowProc': not all control paths return a value
+﻿  bitmap.cpp
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(30,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(32,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(36,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(38,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(42,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(44,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(48,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(50,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(56,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(56,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(58,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(58,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(62,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(62,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(73,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(73,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(73,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(73,45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(93,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(93,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(96,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(96,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(112,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\bitmap.cpp(112,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  geometry.cpp
+  render.cpp
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(12,46): warning C4244: 'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(13,56): warning C4244: 'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(14,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(15,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(16,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(17,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(35,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\render.cpp(35,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Administrator\source\repos\isrealrender\isrealrender\geometry.cpp(63,1): warning C4715: 'Vec2f::operator[]': not all control paths return a value
   isrealrender.vcxproj -> C:\Users\Administrator\source\repos\isrealrender\x64\Debug\isrealrender.exe
