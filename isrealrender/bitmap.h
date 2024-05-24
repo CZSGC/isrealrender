@@ -38,12 +38,6 @@ public:
 
     void clear();
 
-    void setPixel(Vec2f v, uint32_t pix);
-
-    void setLine(Vec2f v0, Vec2f v1, uint32_t pex);
-
-    void setTriangle(Vec3f a, Vec3f b, Vec3f c,float *zbuffer, uint32_t color);
-
     void swap();
 
 
