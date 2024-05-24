@@ -89,11 +89,59 @@ void setTriangle(Vec3f a, Vec3f b, Vec3f c, float* zbuffer, uint32_t color, grap
 
 }
 
+Matrix4f cameraTransformation(Vec4f e, Vec4f u, Vec4f g) {
+    Matrix4f translationMatrix;
+    Matrix4f rotationMatrix;
+    Vec4f vecX = Vec4f::crossProduct(u, g);
+
+    for (int i = 0; i < 3; i++) {
+        rotationMatrix[i][1] = u[i];
+        rotationMatrix[i][2] = -g[i];
+        rotationMatrix[i][0] = vecX[i];
+
+        translationMatrix[i][3] = -e[i];
+    }
+    return rotationMatrix * translationMatrix;
+}
+
+Matrix4f orthographicTransformation(float n, float f, float t, float b, float l, float r) {
+    Matrix4f translationMatrix;
+    Matrix4f rotationMatrix;
+    translationMatrix[0][3] = -((r + l) / 2);
+    translationMatrix[1][3] = -((t + b) / 2);
+    translationMatrix[2][3] = -((n + f) / 2);
+
+    rotationMatrix[0][0] = 2 / (r - l);
+    rotationMatrix[1][1] = 2 / (t - b);
+    rotationMatrix[1][1] = 2 / (n - f);
+
+    return rotationMatrix * translationMatrix;
+}
+
+Matrix4f ModelTransformation(float f, float b,float t, float bo, float l, float r) {
+    Matrix4f translationMatrix;
+    translationMatrix[0][3] = (l + r) / 2;
+    translationMatrix[1][3] = (t + bo) / 2;
+    translationMatrix[2][3] = (f + b) / 2;
+
+    return translationMatrix;
+}
+
+Matrix4f PerspectiveTransformation(float n,float f) {
+    Matrix4f mat;
+    mat[0][0] = n;
+    mat[1][1] = n;
+    mat[3][3] = 0;
+    mat[3][2] = 1;
+    mat[2][2] = n + f;
+    mat[2][3] = -n * f;
+    return mat;
+}
+
 
 
 void drawModelLine(graphics_buffers& buffs) {
     Model model("E:/tinyrender/tinyrenderer/obj/african_head/african_head.obj");
-    //model.faceVertexIndexVector.size()
     for (int i = 3; i < model.faceVertexIndexVector.size(); i++) {
 
         Vec3f v = model.faceVertexIndexVector[i];
@@ -109,20 +157,7 @@ void drawModelLine(graphics_buffers& buffs) {
     }
 }
 
-Matrix4f cameraTransformation(Vec4f e, Vec4f u, Vec4f g) {
-    Matrix4f translationMatrix;
-    Matrix4f rotationMatrix;
-    Vec4f vecX = Vec4f::crossProduct(u, g);
 
-    for (int i = 0; i < 3; i++) {
-        rotationMatrix[i][1] = u[i];
-        rotationMatrix[i][2] = -g[i];
-        rotationMatrix[i][0] = vecX[i];
-
-        translationMatrix[i][3] = -e[i];
-    }
-    return rotationMatrix * translationMatrix;
-}
 
 void drawModelFace(graphics_buffers& buffs) {
 
