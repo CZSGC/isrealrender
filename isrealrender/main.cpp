@@ -7,8 +7,14 @@
 #include "model.h"
 #include "bitmap.h"
 #include "render.h"
+#define widthW 800
+#define heightW 800
+
+
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+std::vector<float> z(widthW*heightW, std::numeric_limits<float>::lowest());
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
@@ -34,7 +40,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,            // Window style
 
         // Size and position
-        0, 0, 800, 800,
+        0, 0, widthW, heightW,
 
         0,       // Parent window    
         0,       // Menu
@@ -83,9 +89,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         case WM_TIMER: 
         {
             auto buffs = reinterpret_cast<graphics_buffers*>(GetWindowLongPtr(hwnd, GWLP_USERDATA ));
-            //draw_something(*buffs);
-            //buffs->set_triangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200));
-            drawModelLine(*buffs);
+            setTriangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200),z,0xffffffff, buffs);
             buffs->swap();
             buffs->clear();
             InvalidateRect(hwnd, NULL, FALSE);

@@ -32,6 +32,8 @@ public:
 		return v1.x * v2.x + v1.y * v2.y;
 	}
 
+	static float dotProduct(const Vec3f& v1, const Vec3f& v2);
+
 	static Vec3f barycentric(Vec3f a, Vec3f b, Vec3f c, Vec3f p)
 	{
 		Vec3f v0 = b - a, v1 = c - a, v2 = p - a;
@@ -65,6 +67,8 @@ public:
 	{
 
 	}
+	Vec4f operator+(const Vec4f& a);
+	Vec4f operator-(const Vec4f& a);
 	float& operator [](int index);
 	const float& operator [](int index) const;
 	static Vec4f crossProduct(const Vec4f& v1, const Vec4f& v2);
@@ -75,13 +79,11 @@ public:
 class Matrix4f 
 {
 public:
-	std::vector<std::vector<float>> matrix
-	{
-		{1,0,0,0},
-		{0,1,0,0},
-		{0,0,1,0},
-		{0,0,0,1}
-	};
+	//float matrix[4][4];
+
+	std::vector<std::vector<float>> matrix;
+
+	Matrix4f();
 
 	Vec4f operator *(Vec4f v);
 	std::vector<float>& operator [](int index);
