@@ -103,7 +103,7 @@ Matrix4f::Matrix4f()
 	matrix.push_back({ 1,0,0,0 });
 	matrix.push_back({ 0,1,0,0 });
 	matrix.push_back({ 0,0,1,0 });
-	matrix.push_back({ 0,0,0,0 });
+	matrix.push_back({ 0,0,0,1 });
 }
 
 Vec4f Matrix4f::operator *(const Vec4f v) 
@@ -170,4 +170,19 @@ Vec4f Vec4f::operator+(const Vec4f& a)
 Vec4f Vec4f::operator-(const Vec4f& a) 
 {
 	return Vec4f(x - a.x, y - a.y, z - a.z);
+
+}
+
+Vec3f Vec4f::toVec3() {
+	return Vec3f(x, y, z);
+}
+
+Vec4f Vec4f::normalize() {
+
+	float len = std::sqrt(x * x + y * y + z * z);
+	return Vec4f(x / len, y / len, z / len);
+}
+
+Vec4f Vec4f::operator/(const float& a) {
+	return Vec4f(x / a, y / a, z / a, w / a);
 }

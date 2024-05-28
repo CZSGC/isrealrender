@@ -7,14 +7,13 @@
 #include "model.h"
 #include "bitmap.h"
 #include "render.h"
-#define widthW 800
-#define heightW 800
-
+#define WIDTH 800
+#define HEIGHT 800
 
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-std::vector<float> z(widthW*heightW, std::numeric_limits<float>::lowest());
+std::vector<float> z((WIDTH + 1)* (HEIGHT + 1), std::numeric_limits<float>::lowest());
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
@@ -40,7 +39,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,            // Window style
 
         // Size and position
-        0, 0, widthW, heightW,
+        0, 0, WIDTH, HEIGHT,
 
         0,       // Parent window    
         0,       // Menu
@@ -82,14 +81,17 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             RECT r;
             GetClientRect(hwnd, &r);
-            SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(new graphics_buffers(r.right - r.left, r.bottom - r.top)));
+            SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(new graphics_buffers(WIDTH, HEIGHT)));
             SetTimer(hwnd, kTimerID, 1, NULL);
         }
         break;
         case WM_TIMER: 
         {
             auto buffs = reinterpret_cast<graphics_buffers*>(GetWindowLongPtr(hwnd, GWLP_USERDATA ));
-            setTriangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200),z,0xffffffff, buffs);
+
+            //setTriangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200),z,0xffffffff, buffs);
+
+            test(buffs,z);
             buffs->swap();
             buffs->clear();
             InvalidateRect(hwnd, NULL, FALSE);

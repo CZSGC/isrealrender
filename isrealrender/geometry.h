@@ -63,15 +63,21 @@ public:
 	float y;
 	float z;
 	float w;
-	Vec4f(int x, int y, int z, int w = 1) :x(x), y(y), z(z), w(w) 
+	Vec4f(float x, float y, float z, float w = 1) :x(x), y(y), z(z), w(w)
 	{
 
+	}
+	Vec4f(Vec3f v):Vec4f(v.x,v.y,v.z) 
+	{
 	}
 	Vec4f operator+(const Vec4f& a);
 	Vec4f operator-(const Vec4f& a);
 	float& operator [](int index);
+	Vec4f operator/(const float& a);
 	const float& operator [](int index) const;
 	static Vec4f crossProduct(const Vec4f& v1, const Vec4f& v2);
+	Vec3f toVec3();
+	Vec4f normalize();
 };
 
 

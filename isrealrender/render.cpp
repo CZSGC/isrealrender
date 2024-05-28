@@ -1,6 +1,27 @@
 
 #include "bitmap.h"
 #include "cmath"
+#include "render.h"
+
+#define FOUR (float)4/3
+#define SIXTEEN (float)16/9
+#define TWENTY (float)21/9
+#define ONE (float)1/1
+#define PI 3.1415926
+
+
+Vec4f eye{ 1,1,3 };
+Vec4f center{ 0,0,0 };
+Vec4f up{ 0,1,0 };
+Matrix4f cameraMatrix = cameraTransformation(eye, center, up);
+
+Matrix4f modelMatrix = modelTransformation(Vec3f(0, 0, 0));
+
+Matrix4f projectMatrix = perspectiveTransformation(106, ONE, 0.1, 100);
+
+Matrix4f viewportMatrix = viewportTransformation(0, 0, 800, 800, 0.1 + 100);
+
+
 void setPixel(Vec3f v, uint32_t pix, graphics_buffers* buffers) 
 {
     int x = v.x, y = v.y;
@@ -53,7 +74,8 @@ void setLine(Vec3f v0, Vec3f v1, uint32_t pex, graphics_buffers* buffers)
 }
 
 void setTriangle(Vec3f a, Vec3f b, Vec3f c, std::vector<float> zbuffer, uint32_t color, graphics_buffers* buffers) {
-
+    int screenWidth = buffers->width();
+    int screenHeight = buffers->height();
 
     int left, right, bottom, top;
     if (a.x < b.x)
@@ -79,6 +101,10 @@ void setTriangle(Vec3f a, Vec3f b, Vec3f c, std::vector<float> zbuffer, uint32_t
     else
         top = b.y > c.y ? b.y : c.y;
 
+    left = left < 0 ? 0 : left;
+    right = right > screenWidth ? screenWidth : right;
+    top = top > screenHeight ? screenHeight : top;
+    bottom = bottom < 0 ? 0 : bottom;
 
 
     for (int i = left; i <= right; i++) 
@@ -90,10 +116,12 @@ void setTriangle(Vec3f a, Vec3f b, Vec3f c, std::vector<float> zbuffer, uint32_t
                 float z = 0.f;
                 Vec3f v = Vec3f::barycentric(a, b, c, Vec3f(i, j));
                 z = a.z * v[0] + b.z * v[1] + c.z * v[2];
-                if (z > zbuffer[j * (buffers->width()) + i]) 
-                {
-                    zbuffer[j * buffers->width() + i] = z;
-                    setPixel(Vec3f(i, j), color,buffers);
+                if (z >= 0 && z < (screenWidth) * (screenHeight)) {
+                    if (z > zbuffer[j * (screenWidth) + i])
+                    {
+                        zbuffer[j * (screenWidth) + i] = z;
+                        setPixel(Vec3f(i, j), color, buffers);
+                    }
                 }
             }
         }
@@ -102,72 +130,47 @@ void setTriangle(Vec3f a, Vec3f b, Vec3f c, std::vector<float> zbuffer, uint32_t
 
 }
 
-Matrix4f cameraTransformation(Vec4f e, Vec4f u, Vec4f g) 
-{
 
-    Vec4f d = g - e;
-    Matrix4f translationMatrix;
-    Matrix4f rotationMatrix;
-    Vec4f vecX = Vec4f::crossProduct(u, d);
 
-    for (int i = 0; i < 3; i++) 
-    {
-        rotationMatrix[i][1] = u[i];
-        rotationMatrix[i][2] = -d[i];
-        rotationMatrix[i][0] = vecX[i];
+Matrix4f viewportTransformation(int x, int y, int w, int h,int depth) {
+    Matrix4f m1,m2;
+    m2[0][3] = x + w / 2.f;
+    m2[1][3] = y + h / 2.f;
+    m1[0][0] = w / 2.f;
+    m1[1][1] = h / 2.f;
 
-        translationMatrix[i][3] = -e[i];
-    }
-    return (rotationMatrix.inverse())*translationMatrix;
+    return m2*m1;
 }
 
-Matrix4f orthographicTransformation(float n, float f, float t, float b, float l, float r) 
-{
-    Matrix4f translationMatrix;
-    Matrix4f scaleMatrix;
-    translationMatrix[0][3] = -((r + l) / 2);
-    translationMatrix[1][3] = -((t + b) / 2);
-    translationMatrix[2][3] = -((n + f) / 2);
 
-    scaleMatrix[0][0] = 2 / (r - l);
-    scaleMatrix[1][1] = 2 / (t - b);
-    scaleMatrix[2][2] = 2 / (n - f);
-
-    return scaleMatrix * translationMatrix;
-}
-
-Matrix4f ModelTransformation(Vec3f modelposition)
+Matrix4f modelTransformation(Vec3f modelposition)
 {
 
-
+    Matrix4f scale;
     Matrix4f translationMatrix;
     translationMatrix[0][3] = modelposition.x;
     translationMatrix[1][3] = modelposition.y;
     translationMatrix[2][3] = modelposition.z;
-
-    return translationMatrix;
+    scale[0][0] = 1;
+    scale[1][1] = 1;
+    scale[2][2] = 1;
+    return scale * translationMatrix;
 }
 
-Matrix4f PerspectiveTransformation(float n,float f) 
+Matrix4f perspectiveTransformation(float fov, float aspectratio,float n,float f)
 {
+    float h = std::abs(std::tan(fov / 180 * PI/2) * n);
+    float w = h * aspectratio;
     Matrix4f mat;
-    mat[0][0] = n;
-    mat[1][1] = n;
+    mat[0][0] = 2 * n / w;
+    mat[1][1] = 2 * n / h;
+    mat[2][2] = (n + f) / (n - f);
+    mat[2][3] = 2 * f * n / (n - f);
     mat[3][3] = 0;
-    mat[3][2] = 1;
-    mat[2][2] = n + f;
-    mat[2][3] = -n * f;
+    mat[3][2] = -1;
     return mat;
 }
 
-Matrix4f PerspectiveTransformation( float f)
-{
-    Matrix4f mat;
-    mat[1][1] = -1;
-    mat[3][3] = 0;
-    mat[3][2] = -(1 / f);
-    return mat;
-}
 
 
 
@@ -191,18 +194,55 @@ void drawModelLine(graphics_buffers* buffs)
     }
 }
 
+Matrix4f cameraTransformation(Vec4f eye, Vec4f center, Vec4f up) {
+    Vec4f z = (eye - center).normalize();
+    Vec4f x = Vec4f::crossProduct(up, z).normalize();
+    Vec4f y = Vec4f::crossProduct(z, x).normalize();
+    Matrix4f Minv;
+    Matrix4f Tr;
+    for (int i = 0; i < 3; i++) {
+        Minv[0][i] = x[i];
+        Minv[1][i] = y[i];
+        Minv[2][i] = z[i];
+        Tr[i][3] = -eye[i];
+    }
+    return Minv * Tr;
+}
 
 
-void test(graphics_buffers* buffs) 
+
+
+void test(graphics_buffers* buffs, std::vector<float> zbuffer)
 {
-    Model model("E:/tinyrender/tinyrenderer/obj/african_head/test.obj");
-    Vec4f eye{ 1,1,3 };
-    Vec4f center{ 0,0,0 };
-    Vec4f up{ 0,1,0 };
-    Vec4f t = eye - center;
-    Matrix4f cameraMatrix = cameraTransformation(eye,up,center);
-    Matrix4f modelMatrix = ModelTransformation(Vec3f(0,0,0));
-    Matrix4f projectMatrix = PerspectiveTransformation(std::sqrt(t.x * t.x + t.y * t.y + t.z * t.z));
-    Matrix4f viewportMatrix= orthographicTransformation
 
+    //test.obj
+    Model model("E:/tinyrender/tinyrenderer/obj/african_head/african_head.obj");
+
+
+    for (int i = 0; i < model.faceVertexIndexVector.size(); i++)
+    {
+        Vec3f v = model.faceVertexIndexVector[i];
+        Vec4f v0(model.vertexVector[v[0]]);
+        Vec4f v1(model.vertexVector[v[1]]);
+        Vec4f v2(model.vertexVector[v[2]]);
+
+        setTriangle(setTriangleparameters(v0), setTriangleparameters(v1), setTriangleparameters(v2), zbuffer, 0xffffffff, buffs);
+    }
+}
+
+void perspectiveDivision(Vec4f &v) {
+    v.x = v.x / v.w;
+    v.y = v.y / v.w;
+    v.z = v.z / v.w;
+    v.w = v.w / v.w;
+}
+
+Vec3f setTriangleparameters(Vec4f v)
+{
+    Matrix4f mat;
+    mat = projectMatrix * cameraMatrix * modelMatrix * mat;
+    v = mat * v;
+    perspectiveDivision(v);
+    v = viewportMatrix * v;
+    return v.toVec3();
 }
