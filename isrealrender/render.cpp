@@ -2,6 +2,7 @@
 #include "bitmap.h"
 #include "cmath"
 #include "render.h"
+#include "texture.h"
 
 #define FOUR (float)4/3
 #define SIXTEEN (float)16/9

@@ -47,15 +47,21 @@ Model::Model(std::string filename)
 		{
 			std::istringstream iss(line);
 			iss >> trash ;
-			float f;
-			Vec3f v;
+			std::vector<Vec3f> temp;
+			float vnf, vtf,f;
+			Vec3f v, vn, vt;
 			for (int i = 0; i <3; i++) 
 			{
 
-				iss >> f >> trash >> itrash >> trash >> itrash;
+				iss >> f >> trash >> vtf >> trash >> vnf;
 				v[i] = --f;
+				vn[i] = --vnf;
+				vt[i] = --vtf;
 			}
-			faceVertexIndexVector.push_back(v);
+			temp.push_back(v);
+			temp.push_back(vn);
+			temp.push_back(vt);
+			faceIndexVector.push_back(temp);
 		}
 		else if (!line.compare(0, 3, "vt ")) 
 		{
@@ -66,7 +72,7 @@ Model::Model(std::string filename)
 			{
 				iss >> v[i];
 			}
-			TextureVertexVector.push_back(v);
+			textureVertexVector.push_back(v);
 		}
 		else if (!line.compare(0, 3, "vn "))
 		{
