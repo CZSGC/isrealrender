@@ -13,7 +13,7 @@
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-std::vector<float> z((WIDTH + 1)* (HEIGHT + 1), std::numeric_limits<float>::lowest());
+
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
@@ -89,9 +89,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         {
             auto buffs = reinterpret_cast<graphics_buffers*>(GetWindowLongPtr(hwnd, GWLP_USERDATA ));
 
-            //setTriangle(Vec3f(50,70), Vec3f(100,300), Vec3f(300,200),z,0xffffffff, buffs);
 
-            test(buffs,z);
+            test(buffs);
             buffs->swap();
             buffs->clear();
             InvalidateRect(hwnd, NULL, FALSE);

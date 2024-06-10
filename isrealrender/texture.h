@@ -22,11 +22,9 @@ struct TGAHeader {
 
 struct TGAColor {
     std::uint8_t bgra[4] = { 0,0,0,0 };
-    std::uint8_t bytespp = 8;
+    std::uint8_t bytespp = 4;
     std::uint8_t& operator[](const int i) { return bgra[i]; }
-    TGAColor() = default;
-    TGAColor(const std::uint8_t R, const std::uint8_t G, const std::uint8_t B, const std::uint8_t A = 255) : bgra{ B,G,R,A }, bytespp(4) { }
-    TGAColor(const std::uint8_t R, const std::uint8_t G, const std::uint8_t B, const std::uint8_t A, const std::uint8_t bbp) : bgra{ B,G,R,A }, bytespp(bbp) { }
+    uint32_t changecolor(float intensity);
 };
 
 struct TGAImage {
@@ -51,4 +49,3 @@ private:
     std::uint8_t bpp = 0;
     std::vector<std::uint8_t> data = {};
 };
-

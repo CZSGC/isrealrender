@@ -2,6 +2,7 @@
 #include "bitmap.h"
 #include "geometry.h"
 
+void getbox(int& left, int& right, int& bottom, int& top, graphics_buffers* buffers);
 
 void drawModelLine(graphics_buffers& buffs);
 
@@ -17,7 +18,7 @@ void setTriangle(Vec3f a, Vec3f b, Vec3f c, std::vector<float> zbuffer, uint32_t
 
 Matrix4f cameraTransformation(Vec4f e, Vec4f u, Vec4f g );
 
-void test(graphics_buffers* buffs, std::vector<float> zbuffer);
+void test(graphics_buffers* buffs);
 
 Matrix4f viewportTransformation(int x, int y, int w, int h, int depth);
 
@@ -28,3 +29,6 @@ Vec3f setTriangleparameters(Vec4f v);
 Matrix4f modelTransformation(Vec3f modelposition);
 
 Matrix4f perspectiveTransformation(float fov, float aspectratio, float n, float f);
+
+float getIntensity(Vec4f normalVector, Vec4f light);
+

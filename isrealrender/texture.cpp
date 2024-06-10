@@ -4,7 +4,6 @@
 
 TGAImage::TGAImage(const int w, const int h, const int bpp) : w(w), h(h), bpp(bpp), data(w* h* bpp, 0) {}
 
-
 bool TGAImage::read_tga_file(const std::string filename) {
     std::ifstream in;
     in.open(filename, std::ios::binary);
@@ -232,3 +231,12 @@ int TGAImage::height() const {
 
 
 
+uint32_t TGAColor::changecolor(float intensity)
+{
+
+    uint32_t hexNumber = 0;
+    hexNumber |= ((static_cast<int>(bgra[2] * intensity)) & 0xFF) << 16;
+    hexNumber |= (static_cast<int>(bgra[1] * intensity) & 0xFF) << 8;
+    hexNumber |= (static_cast<int>(bgra[0] * intensity)) & 0xFF;
+    return hexNumber;
+}

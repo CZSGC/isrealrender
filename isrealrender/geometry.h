@@ -22,11 +22,18 @@ public:
 	Vec3f operator+(const Vec3f& a);
 	Vec3f operator-(const Vec3f& a);
 	float& operator[](int i);
+	float operator*(const Vec3f& a);
 
 	static Vec3f crossProduct2d(const Vec3f& v1,const Vec3f& v2)
 	{
 		return Vec3f(0, 0, v1.x * v2.y - v1.y * v2.x);
 	}
+
+	static Vec3f crossProduct(const Vec3f& a, const Vec3f& b)
+	{
+		return Vec3f(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+	}
+	
 	static float dotProduct2d(const Vec3f& v1, const Vec3f& v2) 
 	{
 		return v1.x * v2.x + v1.y * v2.y;
@@ -45,9 +52,9 @@ public:
 		float denom = d00 * d11 - d01 * d01;
 		float v = (d11 * d20 - d01 * d21) / denom;
 		float w = (d00 * d21 - d01 * d20) / denom;
-		return Vec3f(v, w, 1.0f - v - w);
+		return Vec3f(1.0 - v - w, v, w);
 	}
-
+	Vec3f normalize();
 };
 
 
@@ -78,6 +85,7 @@ public:
 	static Vec4f crossProduct(const Vec4f& v1, const Vec4f& v2);
 	Vec3f toVec3();
 	Vec4f normalize();
+	float operator*(const Vec4f& a);
 };
 
 

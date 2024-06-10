@@ -56,6 +56,9 @@ bool isInside(Vec3f a, Vec3f b, Vec3f c, Vec3f p)
 }
 
 
+float Vec3f::operator*(const Vec3f& a) {
+	return x * a.x + y * a.y + z * a.z;
+}
 
 
 float& Vec4f::operator [](int index) {
@@ -185,4 +188,14 @@ Vec4f Vec4f::normalize() {
 
 Vec4f Vec4f::operator/(const float& a) {
 	return Vec4f(x / a, y / a, z / a, w / a);
+}
+
+float Vec4f::operator*(const Vec4f& a) {
+	return x * a.x + y * a.y + z * a.z;
+}
+
+Vec3f Vec3f::normalize() {
+
+	float len = std::sqrt(x * x + y * y + z * z);
+	return Vec3f(x / len, y / len, z / len);
 }
