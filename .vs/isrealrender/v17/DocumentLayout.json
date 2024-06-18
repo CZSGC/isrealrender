@@ -7,44 +7,44 @@
       "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\render.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\bitmap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\bitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\render.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\render.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\bitmap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\bitmap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A34F291-5D5F-4C07-882D-EF1B70B1F241}|isrealrender\\isrealrender.vcxproj|solutionrelative:isrealrender\\model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -68,64 +68,65 @@
               "RelativeDocumentMoniker": "isrealrender\\render.cpp",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\render.cpp",
               "RelativeToolTip": "isrealrender\\render.cpp",
-              "ViewState": "AQIAAOQAAAAAAAAAAAAcwPkAAABOAAAA",
+              "ViewState": "AQIAAIwAAAAAAAAAAAA/wCMAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-31T07:23:34.027Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "render.h",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\render.h",
               "RelativeDocumentMoniker": "isrealrender\\render.h",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\render.h",
               "RelativeToolTip": "isrealrender\\render.h",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-20T18:10:24.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "texture.h",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.h",
               "RelativeDocumentMoniker": "isrealrender\\texture.h",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.h",
               "RelativeToolTip": "isrealrender\\texture.h",
-              "ViewState": "AQIAABwAAAAAAAAAAAA+wBcAAAAQAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAA+wBcAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-29T03:36:15.112Z"
+              "WhenOpened": "2024-05-29T03:36:15.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "texture.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.cpp",
               "RelativeDocumentMoniker": "isrealrender\\texture.cpp",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\texture.cpp",
               "RelativeToolTip": "isrealrender\\texture.cpp",
-              "ViewState": "AQIAANkAAAAAAAAAAAA+wOkAAAAuAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEUAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-29T16:51:45.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\main.cpp",
               "RelativeDocumentMoniker": "isrealrender\\main.cpp",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\main.cpp",
               "RelativeToolTip": "isrealrender\\main.cpp",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAUwBMAAAAAAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAIA/wF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-26T21:37:23.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "bitmap.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.cpp",
               "RelativeDocumentMoniker": "isrealrender\\bitmap.cpp",
@@ -133,12 +134,11 @@
               "RelativeToolTip": "isrealrender\\bitmap.cpp",
               "ViewState": "AQIAADYAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-22T18:34:51.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T18:34:51.224Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "bitmap.h",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\bitmap.h",
               "RelativeDocumentMoniker": "isrealrender\\bitmap.h",
@@ -146,8 +146,7 @@
               "RelativeToolTip": "isrealrender\\bitmap.h",
               "ViewState": "AQIAABUAAAAAAAAAAAAAAC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-20T17:55:03.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-20T17:55:03.937Z"
             },
             {
               "$type": "Document",
@@ -157,40 +156,39 @@
               "RelativeDocumentMoniker": "isrealrender\\geometry.cpp",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.cpp",
               "RelativeToolTip": "isrealrender\\geometry.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAAAPAAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-18T13:11:57.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "geometry.h",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.h",
               "RelativeDocumentMoniker": "isrealrender\\geometry.h",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\geometry.h",
               "RelativeToolTip": "isrealrender\\geometry.h",
-              "ViewState": "AQIAACEAAAAAAAAAAAA+wC8AAAAjAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-17T18:34:29.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "model.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.cpp",
               "RelativeDocumentMoniker": "isrealrender\\model.cpp",
               "ToolTip": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.cpp",
               "RelativeToolTip": "isrealrender\\model.cpp",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAAC4AAAAVAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAAC4AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-17T16:17:55.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T16:17:55.508Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "model.h",
               "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\isrealrender\\isrealrender\\model.h",
               "RelativeDocumentMoniker": "isrealrender\\model.h",
@@ -198,8 +196,7 @@
               "RelativeToolTip": "isrealrender\\model.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-17T16:16:55.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T16:16:55.006Z"
             }
           ]
         }

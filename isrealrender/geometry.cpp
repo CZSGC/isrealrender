@@ -161,6 +161,16 @@ Matrix4f Matrix4f::inverse()
 	return ret;
 }
 
+Matrix3f Matrix4f::toMatrix3f() {
+	Matrix3f ret;
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
+			ret[i][j] = matrix[i][j];
+		}
+	}
+	return ret;
+}
+
 Vec4f Vec4f::crossProduct(const Vec4f& v1, const Vec4f& v2)
 {
 	return Vec4f(v1.y * v2.z - v1.z * v2.y, v2.x * v1.z - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
@@ -198,4 +208,77 @@ Vec3f Vec3f::normalize() {
 
 	float len = std::sqrt(x * x + y * y + z * z);
 	return Vec3f(x / len, y / len, z / len);
+}
+
+Matrix3f::Matrix3f()
+{
+	matrix.push_back({ 1,0,0});
+	matrix.push_back({ 0,1,0});
+	matrix.push_back({ 0,0,1});
+}
+
+std::vector<float>& Matrix3f::operator [](int index)
+{
+	return matrix[index];
+}
+
+Matrix3f Matrix3f::operator * (Matrix3f matrixc)
+{
+	Matrix3f ret;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			ret[i][j] = matrix[i][0] * matrixc[0][j] + matrix[i][1] * matrixc[1][j] + matrix[i][2] * matrixc[2][j];
+		}
+	}
+	return ret;
+}
+
+Matrix3f Matrix3f::Transpose() {
+	Matrix3f ret;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			ret[i][j] = matrix[j][i];
+		}
+	}
+	return ret;
+}
+
+Matrix3f Matrix3f::Inverse() {
+	Matrix3f ret;
+	Matrix3f adj=this->adjoint();
+	float det = this->determinant();
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			ret[i][j] = adj[i][j] / det;
+		}
+	}
+	return ret;
+}
+float Matrix3f::determinant() {
+	return	matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) -
+		matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) +
+		matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
+}
+Matrix3f Matrix3f::adjoint() {
+	Matrix3f ret;
+	ret[0][0] = matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1];
+	ret[0][1] = matrix[0][2] * matrix[2][1] - matrix[0][1] * matrix[2][2];
+	ret[0][2] = matrix[0][1] * matrix[1][2] - matrix[0][2] * matrix[1][1];
+	ret[1][0] = matrix[1][2] * matrix[2][0] - matrix[1][0] * matrix[2][2];
+	ret[1][1] = matrix[0][0] * matrix[2][2] - matrix[0][2] * matrix[2][0];
+	ret[1][2] = matrix[0][2] * matrix[1][0] - matrix[0][0] * matrix[1][2];
+	ret[2][0] = matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0];
+	ret[2][1] = matrix[0][1] * matrix[2][0] - matrix[0][0] * matrix[2][1];
+	ret[2][2] = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+	return ret;
+}
+
+Vec3f Matrix3f::operator * (Vec3f vec) {
+	Vec3f ret;
+	for (int i = 0; i < 3; i++) {
+		ret[i] = matrix[i][0] * vec[0] + matrix[i][1] * vec[1] + matrix[i][2] * vec[2];
+	}
+	return ret;
 }

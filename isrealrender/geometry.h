@@ -88,7 +88,22 @@ public:
 	float operator*(const Vec4f& a);
 };
 
+class Matrix3f
+{
+public:
+	//float matrix[4][4];
 
+	std::vector<std::vector<float>> matrix;
+
+	Matrix3f();
+	Matrix3f operator * (Matrix3f matrixc);
+	std::vector<float>& operator [](int index);
+	Matrix3f Transpose();
+	Matrix3f Inverse();
+	float determinant();
+	Matrix3f adjoint();
+	Vec3f operator * (Vec3f vec);
+};
 
 class Matrix4f 
 {
@@ -104,5 +119,7 @@ public:
 	Matrix4f operator * (Matrix4f matrixc);
 	Matrix4f operator + (Matrix4f matrixc);
 	Matrix4f inverse();
+	Matrix3f toMatrix3f();
 
 };
+

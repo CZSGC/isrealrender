@@ -19,7 +19,7 @@ double* zbuffer = new double[(WIDTH + 1) * (HEIGHT+1)];
 Vec4f eye{ 1,1,3 };
 Vec4f center{ 0,0,0 };
 Vec4f up{ 0,1,0 };
-Vec4f light(-1, -1, -1);
+Vec4f light(0, 0, 3);
 
 float Iambient = 0.3;
 
@@ -31,7 +31,7 @@ Matrix4f projectMatrix = perspectiveTransformation(106, ONE, 0.1, 100);
 
 Matrix4f viewportMatrix = viewportTransformation(0, 0, 800, 800, 99.9);
 
-
+Matrix3f normalMatrix = modelMatrix.toMatrix3f().Inverse().Transpose();
 
 Model model("E:/tinyrender/tinyrenderer/obj/african_head/african_head.obj");
 std::vector<Vec3f> vertexVector = model.vertexVector;
@@ -215,16 +215,10 @@ void setTriangle(std::vector<Vec3f> v, double zbuffer[], graphics_buffers* buffe
     float determinant = 1.f / (du1 * dv2 - du2 * dv1);
     
     Vec3f T = Vec3f(determinant * (dv2 * e1.x - dv1 * e2.x), determinant * (dv2 * e1.y - dv1 * e2.y), determinant * (dv2 * e1.z - dv1 * e2.z)).normalize();
-    Vec3f B = Vec3f(determinant * (-du2 * e1.x + du1 * e2.x), determinant * (-du2 * e1.y + du1 * e2.y), determinant * (-du2 * e1.z + du1 * e2.z)).normalize();
-    Vec3f N = Vec3f::crossProduct(T, N).normalize();
 
-
-    Matrix4f m;
-    for (int i = 0; i < 3; i++) {
-        m[0][i] = T[i];
-        m[1][i] = B[i];
-        m[2][i] = N[i];
-    }
+    Vec3f normala = normalVertexVector[v[1][0]];
+    Vec3f normalb = normalVertexVector[v[1][1]];
+    Vec3f normalc = normalVertexVector[v[1][2]];
 
 
     for (int i = left; i <= right; i++)
@@ -235,25 +229,46 @@ void setTriangle(std::vector<Vec3f> v, double zbuffer[], graphics_buffers* buffe
             {
 
                 double z = 0;
-                Vec3f vb = Vec3f::barycentric(a, b, c, Vec3f(i, j));
-                Vec3f pos = Vec3f(pos1.x * vb[0] + pos2.x * vb[1] + pos3.x * vb[2], pos1.y * vb[0] + pos2.y * vb[1] + pos3.y * vb[2], pos1.z * vb[0] + pos2.z * vb[1] + pos3.z * vb[2]);
-
-                int x = (UVa[0] * vb[0] + UVb[0] * vb[1] + UVc[0] * vb[2]) * image.width();
-                int y = ((UVa[1] * vb[0] + UVb[1] * vb[1] + UVc[1] * vb[2])) * image.height();
-
-                TGAColor color = image.get(x, y);
-                TGAColor normarColor = normalImage.get(x, y);
-                Vec4f normalv(normarColor.bgra[2], normarColor.bgra[1], normarColor.bgra[0]);
-                Vec3f vbToLight = (light.toVec3() - pos).normalize();
-                float Idiffuse = (((m * normalv).toVec3()).normalize()) * (vbToLight) > 0 ? (((m * normalv).toVec3()).normalize()) * (vbToLight) : 0;
-                Vec3f view = (eye.toVec3()-pos).normalize();
-                float Ispecular = vbToLight * view > 0 ? vbToLight * view : 0;
-                z = a.z * vb[0] + b.z * vb[1] + c.z * vb[2];
+                Vec3f barycentric = Vec3f::barycentric(a, b, c, Vec3f(i, j));
+                z = a.z * barycentric[0] + b.z * barycentric[1] + c.z * barycentric[2];
                 if (z < zbuffer[j * (screenWidth)+i])
                 {
+                    Matrix3f m;
+                    Vec3f pos = Vec3f(pos1.x * barycentric[0] + pos2.x * barycentric[1] + pos3.x * barycentric[2], pos1.y * barycentric[0] + pos2.y * barycentric[1] + pos3.y * barycentric[2], pos1.z * barycentric[0] + pos2.z * barycentric[1] + pos3.z * barycentric[2]);
+
+                    Vec3f normal= Vec3f(normala.x * barycentric[0] + normalb.x * barycentric[1] + normalc.x * barycentric[2], normala.y * barycentric[0] + normalb.y * barycentric[1] + normalc.y * barycentric[2], normala.z * barycentric[0] + normalb.z * barycentric[1] + normalc.z * barycentric[2]);
+                    
+                    
+                    normal = normal.normalize();
+
+
+                    Vec3f B = Vec3f::crossProduct(T, normal);
+
+                    for (int i = 0; i < 3; i++) {
+                        m[i][0] = T[i];
+                        m[i][1] = B[i];
+                        m[i][2] = normal[i];
+                    }
+
+                    int x = (UVa[0] * barycentric[0] + UVb[0] * barycentric[1] + UVc[0] * barycentric[2]) * image.width();
+                    int y = ((UVa[1] * barycentric[0] + UVb[1] * barycentric[1] + UVc[1] * barycentric[2])) * image.height();
+
+                    TGAColor color = image.get(x, y);
+                    TGAColor normarColor = normalImage.get(x, y);
+
+                    Vec3f normalpos(normarColor.bgra[2] *2.f / 256.f - 1.f, normarColor.bgra[1] * 2.f / 256.f - 1.f, normarColor.bgra[0] * 2.f / 256 - 1.f);
+                    normalpos = normalpos.normalize();
+
+
+                    Vec3f pointToLight = (light.toVec3() - pos).normalize();
+                    float Idiffuse = ((normalMatrix * m  * normalpos).normalize()) * (pointToLight) > 0 ? ((normalMatrix * m * normalpos).normalize()) * (pointToLight) : 0;
+                    float c = normal * pointToLight;
+
+                    //Vec3f view = (eye.toVec3() - pos).normalize();
+                    //float Ispecular = pointToLight * view > 0 ? pointToLight * view : 0;
+
                     zbuffer[j * (screenWidth)+i] = z;
-                    //Iambient + Idiffuse + Ispecular
-                    setPixel(Vec3f(i, j), color.changecolor(Iambient + Idiffuse + Ispecular), buffers);
+                    setPixel(Vec3f(i, j), color.changecolor(Idiffuse + Iambient), buffers);
                 }
             }
         }
@@ -283,9 +298,9 @@ Matrix4f modelTransformation(Vec3f modelposition)
     translationMatrix[0][3] = modelposition.x;
     translationMatrix[1][3] = modelposition.y;
     translationMatrix[2][3] = modelposition.z;
-    scale[0][0] = 2;
-    scale[1][1] = 2;
-    scale[2][2] = 2;
+    scale[0][0] = 1;
+    scale[1][1] = 1;
+    scale[2][2] = 1;
     return scale * translationMatrix;
 }
 
